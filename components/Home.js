@@ -5,6 +5,7 @@ import art from './assets/album_art';
 import topCharts from './assets/top_charts';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import Player from './Player';
 
 export default function Home() {
   const globalStyle = styleFile.default;

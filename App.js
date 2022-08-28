@@ -10,6 +10,7 @@ import { Foundation } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { CLIENT_ID, CLIENT_SECRET, REDIRECT_URI } from "@env";
+import Player from './components/Player';
 
 const Tab = createBottomTabNavigator();
 // const Stack = createStackNavigator();
@@ -40,6 +41,11 @@ export default function App() {
           )
         }} />
         <Tab.Screen name="Library" component={Library} options={{
+          tabBarIcon: ({ focused }) => (
+            <Ionicons name="library-sharp" size={24} color={`${focused ? 'white' : 'grey'}`} />
+          )
+        }} />
+        <Tab.Screen name="Player" component={Player} options={{
           tabBarIcon: ({ focused }) => (
             <Ionicons name="library-sharp" size={24} color={`${focused ? 'white' : 'grey'}`} />
           )
