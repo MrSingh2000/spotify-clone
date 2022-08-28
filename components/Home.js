@@ -3,6 +3,8 @@ import React from 'react';
 import * as styleFile from './utilities/style';
 import art from './assets/album_art';
 import topCharts from './assets/top_charts';
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export default function Home() {
   const globalStyle = styleFile.default;
@@ -76,7 +78,15 @@ export default function Home() {
   return (
     <SafeAreaView style={globalStyle.container}>
       <ScrollView>
-        <Text style={globalStyle.whiteText, styles.header}>Good Evening</Text>
+        <View style={{ flexDirection: 'row'}}>
+          <Text style={[globalStyle.whiteText, {flex: 2, fontSize: 35, fontWeight: 'bold'}]}>Good Evening</Text>
+          <View style={{flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around'}}>
+            <Ionicons name="notifications-outline" size={24} color="white" />
+            <MaterialIcons name="replay" size={24} color="white" />
+            <Ionicons name="settings-outline" size={24} color="white" />
+          </View>
+        </View>
+
         <View>
           <View style={styles.artContainer}>
             <Card art={art.art1} label="Go Away Now" />
@@ -92,7 +102,7 @@ export default function Home() {
           </View>
         </View>
 
-        <Text style={styles.header}>New Releases for you</Text>
+        <Text style={[globalStyle.header, globalStyle.whiteText]}>New Releases for you</Text>
         <ScrollView horizontal={true} style={{ marginHorizontal: 2 }}>
           {newReleases.map((item, index) => {
             return (
@@ -103,7 +113,7 @@ export default function Home() {
           })}
         </ScrollView>
 
-        <Text style={styles.header}>Recently Played</Text>
+        <Text style={[globalStyle.header, globalStyle.whiteText]}>Recently Played</Text>
         <ScrollView horizontal={true} style={{ marginHorizontal: 2 }}>
           {recentPlay.map((item, index) => {
             return (
@@ -114,7 +124,7 @@ export default function Home() {
           })}
         </ScrollView>
 
-        <Text style={styles.header}>Charts</Text>
+        <Text style={[globalStyle.header, globalStyle.whiteText]}>Charts</Text>
         <ScrollView horizontal={true} style={{ marginHorizontal: 2 }}>
           {topCharts.map((item, index) => {
             return (
@@ -131,8 +141,10 @@ export default function Home() {
 
 function Card(props) {
   let { art, label } = props;
+  const globalStyle = styleFile.default;
+
   return (
-    <View style={styles.artCard}>
+    <View style={[styles.artCard, globalStyle.greyBg]}>
       <Image
         style={styles.artImg}
         source={art}
@@ -148,23 +160,17 @@ function Card1(props) {
   const globalStyle = styleFile.default;
 
   return (
-    <View style={{ flexDirection: 'column', overflow: 'hidden', backgroundColor: 'pink', padding: 2, alignItems: 'center'}}>
+    <View style={{ flexDirection: 'column', overflow: 'hidden', padding: 2, alignItems: 'center' }}>
       <Image
         style={{ width: 150, height: 150 }}
         source={art}
       />
-      <Text style={globalStyle.whiteText}>{label}</Text>
+      <Text style={[globalStyle.greyText, {fontWeight: '400'}]}>{label}</Text>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  header: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    padding: 10,
-    backgroundColor: 'pink',
-  },
   artImg: {
     width: 60,
     height: 60,
@@ -173,13 +179,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     // justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'pink',
     width: '45%',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    borderRadius: 5,
   },
   artText: {
     color: 'white',
     padding: 5,
+    fontWeight: 'bold'
   },
   artContainer: {
     flexDirection: 'row',

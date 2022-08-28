@@ -1,0 +1,20 @@
+import art1 from "./1.png";
+import art2 from "./2.png";
+import art3 from "./3.png";
+import art4 from "./4.png";
+import art5 from "./5.png";
+import art6 from "./6.png";
+import art7 from "./7.png";
+import art8 from "./8.png";
+import art9 from "./9.png";
+import art10 from "./10.png";
+import art11 from "./11.png";
+import art12 from "./12.png";
+import art13 from "./13.png";
+import art14 from "./14.png";
+import art15 from "./15.png";
+import art16 from "./16.png";
+
+export const topGenre = [{ first: art1, second: art2 }, { first: art3, second: art4 }];
+export const podcast = [{ first: art5, second: art6 }];
+export const browseAll = [{ first: art7, second: art8 }, { first: art9, second: art10 }, { first: art11, second: art12 }, { first: art13, second: art14 }, { first: art15, second: art16 }];
