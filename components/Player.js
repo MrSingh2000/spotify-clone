@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from 'react-native'
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React, { useState, useEffect, useRef } from 'react'
 import * as styleFile from './utilities/style';
 import { Entypo } from '@expo/vector-icons';
@@ -14,40 +14,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Player(props) {
     const globalStyle = styleFile.default;
-
-    const [songInfo, setSongInfo] = useState({
-        name: "unknown",
-        artist: "unknown",
-        totalTime: 0,
-        timeRemaining: 0
-    });
-    const [timeElapsed, setTimeElapsed] = useState(0);
-
-    const [song, setSong] = useState();
-    const [play, setPlay] = useState(false);
-    const sound = new Audio.Sound();
-
-    const playSong = async () => {
-        setPlay(true);
-        // if new song is played, first it will be loaded
-        if (!song) {
-            await sound.loadAsync(audioFile);
-            await sound.playAsync();
-            setSong(sound);
-            let info = await sound.getStatusAsync();
-            setSongInfo({
-                ...songInfo,
-                totalTime: info.durationMillis / 1000,
-                timeRemaining: info.playableDurationMillis / 1000
-            });
-            setTimeElapsed(songInfo.totalTime - songInfo.timeRemaining);
-        }
-        // if the song is already loaded and is played from paused state
-        else if (song) {
-            await song.playAsync();
-        }
-
-    }
+    let { song, setSong, play, setPlay, sound, playSong, setMusicPlayer, setOpenPlayer, musicInfo, songInfo, setSongInfo, timeElapsed, setTimeElapsed } = props;
 
     useEffect(() => {
         let myInterval;
@@ -65,7 +32,6 @@ export default function Player(props) {
         }
     }, [play]);
 
-
     const pauseSong = async () => {
         // pause the song
         song.pauseAsync();
@@ -82,34 +48,35 @@ export default function Player(props) {
 
 
     return (
-        <View style={[globalStyle.container, {backgroundColor: '#A2139B'}]}>
+        <View style={[globalStyle.container, { backgroundColor: '#A2139B' }]}>
             <LinearGradient
                 // Background Linear Gradient
-                // start={[0.1,0.1]}
                 colors={['rgba(0,0,0,0.8)', 'transparent']}
                 style={styles.background}
                 end={[0.5, 1.0]}
             />
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-                <Entypo name="chevron-thin-down" size={24} color="white" />
+                <Pressable style={{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center' }} onPress={() => setOpenPlayer(false)}>
+                    <Entypo name="chevron-thin-down" size={24} color="white" />
+                </Pressable>
                 <View style={{ alignItems: 'center' }}>
-                    <Text style={[globalStyle.whiteText,{ fontSize: 12 }]}>Now Playing</Text>
-                    <Text style={[globalStyle.whiteText,{ fontWeight: 'bold' }]}>Drive Thru</Text>
+                    <Text style={[globalStyle.whiteText, { fontSize: 12 }]}>Now Playing</Text>
+                    <Text style={[globalStyle.whiteText, { fontWeight: 'bold' }]}>{musicInfo.label}</Text>
                 </View>
                 <MaterialCommunityIcons name="dots-vertical" size={24} color="white" />
             </View>
 
             <View style={{ flexGrow: 1, alignItems: 'center' }}>
-                <Image style={{ width: '90%', height: 350 }} source={art.art1} />
+                <Image style={{ width: '90%', height: 350 }} source={musicInfo.pic} />
             </View>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                 <View >
                     <Text style={[globalStyle.whiteText, { fontSize: 20, fontWeight: 'bold' }]}>
-                        Peaches
+                        {musicInfo.label}
                     </Text>
                     <Text style={[globalStyle.greyText, { fontSize: 15 }]}>
-                        Diljit Dosanjh
+                        {musicInfo.artist}
                     </Text>
                 </View>
                 <AntDesign name="hearto" size={24} color="black" />
@@ -127,6 +94,10 @@ export default function Player(props) {
                     value={timeElapsed}
                     onSlidingComplete={(val) => playFromPositionHandler(val)}
                 />
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10}}>
+                    <Text style={globalStyle.whiteText}>{`${Math.floor(timeElapsed/60)}:${Math.floor(timeElapsed%60)}`}</Text>
+                    <Text style={globalStyle.whiteText}>{`${Math.floor(songInfo.totalTime/60)}:${Math.floor(songInfo.totalTime%60)}`}</Text>
+                </View>
             </View>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 5, alignItems: 'center' }}>
@@ -134,7 +105,7 @@ export default function Player(props) {
                 <MaterialCommunityIcons name="skip-previous" size={30} color="white" />
                 {!play ?
                     (
-                        <AntDesign onPress={playSong} name="play" size={60} color="white" />
+                        <AntDesign onPress={() => playSong("replay")} name="play" size={60} color="white" />
                     ) : (
                         <AntDesign onPress={pauseSong} name="pausecircle" size={60} color="white" />
                     )}
@@ -153,5 +124,5 @@ const styles = StyleSheet.create({
         right: 0,
         top: 0,
         height: 700,
-      },
+    },
 })
