@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Pressable, Alert, BackHandler } from 'react-native';
 import Home from './components/Home';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -14,11 +14,21 @@ import Player from './components/Player';
 import { useState } from 'react';
 import Miniplayer from './components/utilities/Miniplayer';
 import { Audio } from 'expo-av';
+import NetInfo from '@react-native-community/netinfo';
 
 const Tab = createBottomTabNavigator();
 // const Stack = createStackNavigator();
 
+// checking Internet connection
+
 export default function App() {
+  NetInfo.fetch().then(state => {
+    if (!state.isConnected)
+      Alert.alert("Warning!", "No Internet Available.", [
+        { text: "Exit", onPress: () => BackHandler.exitApp() }
+      ]);
+  });
+
   const [musicPlayer, setMusicPlayer] = useState(false);
   const [openPlayer, setOpenPlayer] = useState(false);
   const [musicInfo, setMusicInfo] = useState(null);
