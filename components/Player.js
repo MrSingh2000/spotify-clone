@@ -48,7 +48,7 @@ export default function Player(props) {
 
 
     return (
-        <View style={[globalStyle.container, { backgroundColor: '#A2139B' }]}>
+        <View style={[globalStyle.container, {marginTop: 0, backgroundColor: '#A2139B' }]}>
             <LinearGradient
                 // Background Linear Gradient
                 colors={['rgba(0,0,0,0.8)', 'transparent']}
