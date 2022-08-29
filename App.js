@@ -82,6 +82,7 @@ export default function App() {
     <Player timeElapsed={timeElapsed} setTimeElapsed={setTimeElapsed} songInfo={songInfo} setSongInfo={setSongInfo} play={play} setPlay={setPlay} song={song} setSong={setSong} sound={sound} playSong={playSong} setMusicPlayer={setMusicPlayer} setOpenPlayer={setOpenPlayer} musicInfo={musicInfo} />
   ) : (
     <>
+      <StatusBar style="light" />
       <NavigationContainer style={styles.main}>
         <Tab.Navigator sceneContainerStyle={{
           backgroundColor: 'black',
