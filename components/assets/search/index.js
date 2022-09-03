@@ -1,19 +1,20 @@
-import art1 from "./1.png";
-import art2 from "./2.png";
-import art3 from "./3.png";
-import art4 from "./4.png";
-import art5 from "./5.png";
-import art6 from "./6.png";
-import art7 from "./7.png";
-import art8 from "./8.png";
-import art9 from "./9.png";
-import art10 from "./10.png";
-import art11 from "./11.png";
-import art12 from "./12.png";
-import art13 from "./13.png";
-import art14 from "./14.png";
-import art15 from "./15.png";
-import art16 from "./16.png";
+let art1 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/1.png";
+let art2 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/2.png";
+let art3 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/3.png";
+let art4 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/4.png";
+let art5 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/5.png";
+let art6 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/6.png";
+let art7 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/7.png";
+let art8 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/8.png";
+let art9 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/9.png";
+let art10 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/10.png";
+let art11 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/11.png";
+let art12 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/12.png";
+let art13 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/13.png";
+let art14 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/14.png";
+let art15 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/15.png";
+let art16 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/16.png";
+
 
 export const topGenre = [{ first: art1, second: art2 }, { first: art3, second: art4 }];
 export const podcast = [{ first: art5, second: art6 }];

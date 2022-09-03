@@ -6,7 +6,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import art from './assets/album_art';
 import audioFile from "./assets/music/audio1.mp3";
-import png from "./assets/album_art/art1.png";
 import Slider from '@react-native-community/slider';
 import { Ionicons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
@@ -48,7 +47,7 @@ export default function Player(props) {
 
 
     return (
-        <View style={[globalStyle.container, {marginTop: 0, backgroundColor: '#A2139B' }]}>
+        <View style={[globalStyle.container, { marginTop: 0, backgroundColor: '#A2139B' }]}>
             <LinearGradient
                 // Background Linear Gradient
                 colors={['rgba(0,0,0,0.8)', 'transparent']}
@@ -67,7 +66,7 @@ export default function Player(props) {
             </View>
 
             <View style={{ flexGrow: 1, alignItems: 'center' }}>
-                <Image style={{ width: '90%', height: 350 }} source={musicInfo.pic} />
+                <Image style={{ width: '90%', height: 350 }} source={{ uri: musicInfo.pic }} />
             </View>
 
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -94,9 +93,9 @@ export default function Player(props) {
                     value={timeElapsed}
                     onSlidingComplete={(val) => playFromPositionHandler(val)}
                 />
-                <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10}}>
-                    <Text style={globalStyle.whiteText}>{`${Math.floor(timeElapsed/60)}:${Math.floor(timeElapsed%60)}`}</Text>
-                    <Text style={globalStyle.whiteText}>{`${Math.floor(songInfo.totalTime/60)}:${Math.floor(songInfo.totalTime%60)}`}</Text>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 10 }}>
+                    <Text style={globalStyle.whiteText}>{`${Math.floor(timeElapsed / 60)}:${Math.floor(timeElapsed % 60)}`}</Text>
+                    <Text style={globalStyle.whiteText}>{`${Math.floor(songInfo.totalTime / 60)}:${Math.floor(songInfo.totalTime % 60)}`}</Text>
                 </View>
             </View>
 

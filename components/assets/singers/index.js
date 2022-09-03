@@ -1,9 +1,9 @@
-import art1 from "./1.jpg";
-import art2 from "./2.jpg";
-import art3 from "./3.jpg";
-import art4 from "./4.jpg";
-import art5 from "./5.jpg";
-import art6 from "./6.jpg";
+let art1 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/1sing.jpg";
+let art2 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/2sing.jpg";
+let art3 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/3sing.jpg";
+let art4 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/4sing.jpg";
+let art5 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/5sing.jpg";
+let art6 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/6sing.jpg";
 
 export const singers = [
     {

@@ -25,10 +25,16 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.mrsingh2000.spoofify"
+      "package": "com.mrsingh2000.spoofify",
+      "versionCode":1
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "88056b0f-6597-42d8-9f14-3c0d80c23bf7"
+      }
     }
   }
 }

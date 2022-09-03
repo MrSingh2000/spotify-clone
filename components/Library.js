@@ -52,9 +52,9 @@ function Card(props) {
       <Image
         borderRadius={100}
         style={styles.artImg}
-        source={art}
+        source={{ uri: art }}
       />
-      <View style={{padding: 5}}>
+      <View style={{ padding: 5 }}>
         <Text style={globalStyle.whiteText}>{label}</Text>
         <Text style={globalStyle.greyText}>Artist</Text>
       </View>

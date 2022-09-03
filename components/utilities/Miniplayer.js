@@ -1,6 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react';
-import art from "../assets/album_art/art1.png";
 import * as styleFile from './style';
 import { EvilIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
@@ -12,7 +11,7 @@ export default function Miniplayer(props) {
     return (
         <View style={[styles.container, globalStyle.greyBg]}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Image source={musicInfo.pic} style={{ width: 60, height: 60 }} />
+                <Image source={{uri: musicInfo.pic}} style={{ width: 60, height: 60 }} />
 
                 <View style={{ marginLeft: 5 }}>
                     <Text style={globalStyle.whiteText}>{musicInfo.label}</Text>

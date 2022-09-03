@@ -1,9 +1,9 @@
-import top1 from "./punjabi.jpg";
-import top2 from "./hindi.jpg";
-import top3 from "./bts.jpg";
-import top4 from "./top50.jpg";
-import top5 from "./tamil.jpg";
-import top6 from "./spanish.jpg";
+let top1 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/punjabi.jpg";
+let top2 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/hindi.jpg";
+let top3 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/bts.jpg";
+let top4 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/top50.jpg";
+let top5 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/tamil.jpg";
+let top6 = "https://mrsingh2000.blob.core.windows.net/spotifyclone/spanish.jpg";
 
 let topCharts = [
     {

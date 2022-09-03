@@ -202,7 +202,7 @@ function Card(props) {
     <View style={[styles.artCard, globalStyle.greyBg]}>
       <Image
         style={styles.artImg}
-        source={art}
+        source={{ uri: art }}
       />
       <Text style={styles.artText}>{label}</Text>
     </View>
@@ -218,7 +218,7 @@ function Card1(props) {
     <View style={{ flexDirection: 'column', overflow: 'hidden', padding: 2, alignItems: 'center' }}>
       <Image
         style={{ width: 150, height: 150 }}
-        source={art}
+        source={{ uri: art }}
       />
       <Text style={[globalStyle.greyText, { fontWeight: '400' }]}>{label}</Text>
     </View>

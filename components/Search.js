@@ -54,7 +54,7 @@ function Card(props) {
             <Image
                 resizeMode="contain"
                 style={{ width: "100%", height: 110, borderRadius: 10}}
-                source={pic}
+                source={{uri: pic}}
             />
         </View>
     )
